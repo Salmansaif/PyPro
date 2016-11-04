@@ -1,0 +1,29 @@
+$def with (name, piclink)
+
+<style type="text/css">
+	.img-responsive{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+
+<h1>Account Settings</h1>
+<div class="row">
+	<div class="col-md-4">
+		Your Name: <span class="badge">$name</span><br><br>
+		<img src="$piclink" alt="Profile-pic" class="img-circle img-responsive">
+		<form action="/imgupload" enctype="multipart/form-data" method="POST">
+			Profile Picture
+			<input type="file" id="photo" name="photo"/>
+			<button type"submit" class="btn btn-default">Update</button>
+		</form>
+	</div>
+
+	<div class="col-md-4">
+		Remove account:
+		<form action="/account" method="POST">
+			<button class="btn btn-primary">Delete!</button>
+		</form>
+		<h4><div class="alert alert-danger" role="alert">Be Carefull! You can't recover.</div></h4>
+	</div>
+</div>

@@ -1,0 +1,66 @@
+$def with (room, user, score, piclink, guesses)
+
+<style type="text/css">
+    .img-responsive{
+        width: 80px;
+        height: 80px;
+        margin: 2%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Welcome! <i>$user</i>,</h4>
+        Score: <span class="badge">$score</span><br><br>
+    </div>
+    <div class="col-md-4">
+        <img src="$piclink" alt="Profile-pic" class="img-circle img-responsive">
+    </div>
+</div>
+
+
+
+
+<h1> $room.name </h1>
+
+<pre>
+$room.description
+</pre>
+
+$if room.name == "death":
+    <p><a href="/" class="btn btn-success">Play Again?</a></p>
+
+$elif room.name == "The End":
+    <form action="/game" method="POST">
+        <button class="btn btn-success">Wanna Play Again?</button>
+    </form>
+
+$else:
+    <p>
+    <form action="/game" method="POST">
+        - <input type="text" name="action" autofocus> <input type="SUBMIT" class="btn btn-primary">
+    </form>
+    </p>
+
+$if room.name == 'Laser Weapon Armory' and guesses != 0:
+    <strong>Access Denied, You have $guesses guesses left.</strong>
+
+<br><br>
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <form action="/account" method="GET">
+                <button class="btn btn-xs btn-primary">Account Settings</button>
+            </form>
+        </td>
+        <td>
+            <form action="/signout" method="POST">
+                <button class="btn btn-xs btn-danger" name="signout">Signout!</button>
+            </form>
+        </td>
+    </tr>
+</table>
