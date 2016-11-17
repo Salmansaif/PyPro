@@ -1,3 +1,3 @@
-# Lpthw Gothon Web Project
+# Signin/signup system in Python Webpy
 
-It has all the features of signin/signup system and signout and account settings and also highscores and profile pic.
+A game website with the features of signin/signup, profilepic and highscore system using python webpy.
